@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "cedbf4fc-b3bc-4e30-8984-603e8c07cb91",
+		"name": "otus_homework_kube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IP ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36f9f644-f02b-4875-85ae-235e5f864235",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"resp 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "arch.homework"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{CUBE_IP}}/ping",
+					"host": [
+						"{{CUBE_IP}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IP health",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0913b40-3d32-475e-b74a-81f2fb09d1fe",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"resp 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"status OK\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"\");",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "arch.homework"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{CUBE_IP}}/health",
+					"host": [
+						"{{CUBE_IP}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "arch.homework/health",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0ec43aa-f9e3-4638-b901-8451f7697eba",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"resp 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"status OK\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "arch.homework/health",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9182b5aa-1d61-4d61-8157-3d4020ffd3c1",
+					"name": "arch.homework/health",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "arch.homework/health",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 07 Feb 2021 20:08:54 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\"}"
+				}
+			]
+		},
+		{
+			"name": "arch.homework/student_name/health",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8c2f19f-2b82-4c8a-8658-e8c7ae3be8f4",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"resp 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"status OK\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "arch.homework/otusapp/student_name/health",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"otusapp",
+						"student_name",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a4342f15-04d8-47a6-a8ce-ec7bf1cdc837",
+					"name": "arch.homework/student_name/health",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "arch.homework/otusapp/student_name/health",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"student_name",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 07 Feb 2021 20:10:33 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\"}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "41c622d1-73fb-42c7-b526-a23981e3fa03",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5334f884-0843-4e7e-a4ea-aaa89653a015",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "54ac0c4a-f0af-4c76-9f1d-6e4c5351b864",
+			"key": "CUBE_IP",
+			"value": "",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
